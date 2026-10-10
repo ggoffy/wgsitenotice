@@ -50,7 +50,7 @@ function b_wgsitenotice_versions_show($options)
         }
         $version[$i]['version_name'] = $version_name;
         $versionSlug = $versions_arr[$i]->getVar('version_slug');
-        $version[$i]['version_slug'] = $versions_arr[$i]->getVar('$versionSlug');
+        $version[$i]['version_slug'] = $versionSlug;
         $versionId = $versionsHandler->getIdBySlug($versionSlug);
         $version[$i]['highlight'] = ($versions_arr[$i]->getVar('version_id') == $versionId);
         $j++;

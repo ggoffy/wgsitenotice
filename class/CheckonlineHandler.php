@@ -74,7 +74,6 @@ class CheckonlineHandler extends \XoopsPersistableObjectHandler
                 $GLOBALS['xoopsTpl']->assign('error',\curl_error($ch));
             }
 
-            \curl_close($ch);
         } else {
             $opts = ['http' =>
                 [

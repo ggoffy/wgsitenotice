@@ -214,7 +214,7 @@ class SysUtility
     public function fieldExists($fieldname, $table)
     {
         global $xoopsDB;
-        $result = $xoopsDB->queryF("SHOW COLUMNS FROM   $table LIKE '$fieldname'");
+        $result = $xoopsDB->query("SHOW COLUMNS FROM   $table LIKE '$fieldname'");
 
         return ($xoopsDB->getRowsNum($result) > 0);
     }

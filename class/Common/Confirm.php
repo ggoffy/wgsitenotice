@@ -38,21 +38,21 @@ namespace XoopsModules\Wgsitenotice\Common;
  */
 class Confirm
 {
-    private array $hiddens = [];
-    private string $action  = '';
-    private string $title   = '';
-    private string $label   = '';
-    private string $object  = '';
+    private array $hiddens;
+    private string $action;
+    private string $title;
+    private string $label;
+    private string $object;
 
     /**
      * @public function constructor class
-     * @param string $hiddens
+     * @param array  $hiddens
      * @param string $action
      * @param string $object
      * @param string $title
      * @param string $label
      */
-    public function __construct(array $hiddens, string $action, $object, null|string $title = '', null|string $label = '')
+    public function __construct(array $hiddens, string $action, $object, string $title = '', string $label = '')
     {
         $this->hiddens = $hiddens;
         $this->action  = $action;

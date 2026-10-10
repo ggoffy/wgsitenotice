@@ -137,7 +137,6 @@ trait VersionChecks
                         $ret[] = $latestVersionLink;
                     }
                 }
-                \curl_close($curlHandle);
             }
         }
 

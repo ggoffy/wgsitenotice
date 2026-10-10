@@ -43,11 +43,10 @@ class VersionsHandler extends \XoopsPersistableObjectHandler
      * create a unique slug for version
      *
      * @param string $title
-     * @param int    $id
-     *
+     * @param int $versionId
      * @return string
      */
-    function createUniqueVersionSlug($title, $versionId = 0)
+    function createUniqueVersionSlug(string $title, int $versionId = 0)
     {
         global $xoopsDB;
 
@@ -74,7 +73,6 @@ class VersionsHandler extends \XoopsPersistableObjectHandler
                 $slug = $transliterator->transliterate($slug);
             }
         }
-
 
         /* replace non-characters/non-digits by - */
         $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
@@ -109,18 +107,17 @@ class VersionsHandler extends \XoopsPersistableObjectHandler
      * check the slug uniqueness
      *
      * @param string $slug
-     * @param int    $id
-     *
+     * @param int $versionId
      * @return bool
      */
-    function checkSlugUnique($slug, $versionId = 0)
+    function checkSlugUnique(string $slug, int $versionId = 0)
     {
         global $xoopsDB;
 
         $sql = '
             SELECT version_id
             FROM ' . $xoopsDB->prefix('wgsitenotice_versions'). "
-            WHERE version_slug = '{$slug}'
+            WHERE version_slug = '$slug'
         ";
         /* the current version should not be compared */
         if ($versionId > 0) {
@@ -140,9 +137,9 @@ class VersionsHandler extends \XoopsPersistableObjectHandler
      *
      * @param string $slug
      *
-     * @return bool
+     * @return int
      */
-    function getIdBySlug($slug)
+    function getIdBySlug(string $slug)
     {
         global $xoopsDB;
 
@@ -151,7 +148,7 @@ class VersionsHandler extends \XoopsPersistableObjectHandler
         $sql = '
             SELECT version_id
             FROM ' . $xoopsDB->prefix('wgsitenotice_versions'). "
-            WHERE version_slug = '{$slug}'
+            WHERE version_slug = '$slug'
         ";
 
         $result = $xoopsDB->query($sql);
